@@ -1,0 +1,4 @@
+.env
+bsawf/
+instance/settings.py
+**/__pycache__
