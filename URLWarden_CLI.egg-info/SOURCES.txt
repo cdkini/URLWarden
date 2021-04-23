@@ -1,0 +1,9 @@
+URLWarden_CLI.egg-info/PKG-INFO
+URLWarden_CLI.egg-info/SOURCES.txt
+URLWarden_CLI.egg-info/dependency_links.txt
+URLWarden_CLI.egg-info/entry_points.txt
+URLWarden_CLI.egg-info/requires.txt
+URLWarden_CLI.egg-info/top_level.txt
+cli/__init__.py
+cli/cli.py
+cli/commands/__init__.py
