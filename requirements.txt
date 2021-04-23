@@ -11,3 +11,6 @@ flake8==3.7.8
 
 # CLI.
 Click==6.4
+
+# Extensions.
+flask-debugtoolbar==0.10.0
