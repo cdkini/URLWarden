@@ -1,4 +1,4 @@
 .env
-bsawf/
+.coverage
 instance/settings.py
 **/__pycache__
