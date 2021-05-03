@@ -1,0 +1,14 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}Shorten your URL's with ease!{% endblock %}
+{% block meta_description %}Utilize the power of hashing algorithms to simply even the most complex of URL's.{% endblock %}
+
+{% block body %}
+<div>FORM!</div>
+<form action="/sign-up" method="POST">
+  <div class="form-group">
+    <label>Enter a long URL to get a shortened version:</label>
+    <input type="text" class="form-control" id="username" name="username" placeholder="Select a username">
+  </div>
+</form>
+{% endblock %}
