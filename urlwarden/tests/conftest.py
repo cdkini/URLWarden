@@ -1,21 +1,22 @@
 from datetime import datetime
+from typing import Any, Dict, List
 
 import mongomock
 import pytest
 from passlib.hash import pbkdf2_sha256
-from urlwarden.database.db import DB
 
 from urlwarden.app import create_app
+from urlwarden.database.db import DB
 
 
 @pytest.fixture(scope="session")
 def app():
     """
-    Setup our Flask test app (this only gets executed once)
+    Setup our Flask test app (this only gets executed once).
 
     :return: Flask app
     """
-    params = {
+    params: Dict[str, Any] = {
         "DEBUG": False,
         "TESTING": True,
     }
@@ -30,19 +31,24 @@ def app():
 @pytest.fixture(scope="function")
 def client(app):
     """
-    Setup our app client (this gets executed once for each test function)
+    Setup our app client (this gets executed once for each test function).
 
     :param app: Pytest fixture
     :return: Flask app client
     """
-
     yield app.test_client()
 
 
 @pytest.fixture(scope="function")
 def db(app):
-    mongo = mongomock.MongoClient()
-    objects = [
+    """
+    Setup our test database and populate it with dummy data (this gets executed once for each test function).
+
+    :param app: Pytest fixture
+    :return: Flask app client
+    """
+    mongo: mongomock.MongoClient = mongomock.MongoClient()
+    objects: List[Dict[str, Any]] = [
         {
             "_id": "user_1",
             "name": "User1",
@@ -50,14 +56,12 @@ def db(app):
             "password": pbkdf2_sha256.hash("password"),
             "created_at": datetime.utcnow(),
             "last_login": datetime.utcnow(),
-            "urls": [
-                {
-                    "_id": "abc123",
-                    "url": "www.google.com",
-                    "created_at": datetime.utcnow(),
-                    "expires_on": None,
-                }
-            ],
+            "urls": [{
+                "_id": "abc123",
+                "url": "www.google.com",
+                "created_at": datetime.utcnow(),
+                "expires_on": None,
+            }],
         },
         {
             "_id": "user_2",
@@ -71,4 +75,3 @@ def db(app):
     ]
     mongo.db.users.insert_many(objects)
     return DB(mongo)
-
