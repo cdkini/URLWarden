@@ -1,16 +1,30 @@
-Flask==0.10.1
-werkzeug==0.14.1
+# General
+Flask==1.1.2
+werkzeug==1.0.1
 
-# Application server for both development and production.
+# Application server for both development and production
 gunicorn==19.4.5
 
-# Testing and static analysis.
+# Testing and static analysis
 pytest==5.1.0
 pytest-cov==2.7.1
+pytest-mock==3.3.1
 flake8==3.7.8
+requests==2.25.1
+mongomock==3.22.1
 
-# CLI.
+
+# Data
+redis==3.5.3
+dnspython==2.0.0
+pymongo==3.11.3
+passlib==1.7.4
+
+# CLI
 Click==6.4
 
-# Extensions.
+# Extensions
 flask-debugtoolbar==0.10.0
+Flask-Login==0.3.2
+Flask-Caching==1.10.1
+Flask-Session

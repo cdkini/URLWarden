@@ -2,3 +2,4 @@
 .coverage
 instance/settings.py
 **/__pycache__
+flask_session/
